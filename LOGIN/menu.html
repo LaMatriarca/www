@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - ARTEPAN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Menú Principal</h1>
+        <p>Bienvenido al menú principal.</p>
+        
+        <a href="login.html" class="btn">Iniciar Sesión</a>
+        
+        <p>¿Deseas registrarte?</p>
+        <button class="btn" onclick="seleccionarRegistro('Usuario')">Registrar como Usuario</button>
+        <button class="btn" onclick="seleccionarRegistro('Administrador')">Registrar como Administrador</button>
+    </div>
+
+    <script>
+        function seleccionarRegistro(rol) {
+            localStorage.setItem('registroRol', rol);
+            window.location.href = 'register.html';
+        }
+    </script>
+</body>
+</html>

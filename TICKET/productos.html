@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos - Panadería ARTEPAN</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('Pan.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: -1;
+      backdrop-filter: blur(2px);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #8B5C2C;
+    }
+
+    header img {
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    header h2 {
+      color: #f7f4f3;
+      font-size: 2.2em;
+      margin: 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #D6A75C;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #C48A3C;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto 50px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #8B5C2C;
+      color: white;
+    }
+
+    td {
+      background-color: #fff9f3;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    form input, form select {
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 150px;
+    }
+
+    form button {
+      min-width: 120px;
+      align-self: center;
+    }
+
+    @media (max-width: 768px) {
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+      }
+
+      header img {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpeg" alt="Logo ARTEPAN">
+    <h2>Productos - Panadería ARTEPAN</h2>
+  </header>
+
+ <div class="buttons">
+  <button onclick="mostrarFormularioAgregar()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M13 11h8v2h-8v8h-2v-8H3v-2h8V3h2v8z"/>
+    </svg>
+    Agregar
+  </button>
+
+  <button onclick="Swal.fire('Alerta', 'Haz clic sobre una fila para modificarla', 'info')">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0L15.13 4.46l3.75 3.75 1.83-1.17z"/>
+  </svg>
+  Modificar
+</button>
+
+
+  <button onclick="location.href='Inventario.html'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
+    </svg>
+    Volver
+  </button>
+</div>
+
+
+  <main>
+    <section class="tabla">
+      <table id="tablaProductos">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5">No hay productos agregados</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <form id="formProducto" style="display:none;">
+      <input type="hidden" id="productoId" />
+      <input type="text" id="nombre" placeholder="Nombre del pan" required />
+      <select id="categoria" required>
+        <option value="" disabled selected>Selecciona categoría</option>
+        <option value="Pan dulce">Pan dulce</option>
+        <option value="Pan salado">Pan salado</option>
+        <option value="Baguette">Baguette</option>
+        <option value="Especialidad">Especialidad</option>
+      </select>
+      <input type="number" id="precio" placeholder="Precio (MXN)" min="0" step="0.01" required />
+      <input type="number" id="cantidad" placeholder="Cantidad" min="0" required />
+      <button type="submit" id="btnGuardar">Guardar</button>
+      <button type="button" onclick="cancelarFormulario()">Cancelar</button>
+    </form>
+  </main>
+
+  <script>
+    let productos = JSON.parse(localStorage.getItem('productos')) || [];
+    let productoSeleccionadoId = null;
+
+    const tablaBody = document.querySelector('#tablaProductos tbody');
+    const form = document.getElementById('formProducto');
+
+    function mostrarProductos() {
+      tablaBody.innerHTML = '';
+      if (productos.length === 0) {
+        tablaBody.innerHTML = '<tr><td colspan="5">No hay productos agregados</td></tr>';
+        return;
+      }
+      productos.forEach((prod, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${prod.id}</td>
+          <td>${prod.nombre}</td>
+          <td>${prod.categoria}</td>
+          <td>$${prod.precio.toFixed(2)}</td>
+          <td>${prod.cantidad}</td>
+        `;
+        tr.style.cursor = 'pointer';
+        tr.onclick = () => seleccionarProducto(index);
+        tablaBody.appendChild(tr);
+      });
+    }
+
+    function seleccionarProducto(index) {
+      productoSeleccionadoId = index;
+      mostrarFormularioModificar(productos[index]);
+    }
+
+    function mostrarFormularioAgregar() {
+      form.reset();
+      form.style.display = 'flex';
+      document.getElementById('productoId').value = '';
+      productoSeleccionadoId = null;
+    }
+
+    function mostrarFormularioModificar(producto) {
+      form.style.display = 'flex';
+      document.getElementById('productoId').value = producto.id;
+      document.getElementById('nombre').value = producto.nombre;
+      document.getElementById('categoria').value = producto.categoria;
+      document.getElementById('precio').value = producto.precio;
+      document.getElementById('cantidad').value = producto.cantidad;
+    }
+
+    function ocultarFormulario() {
+      form.style.display = 'none';
+      productoSeleccionadoId = null;
+      mostrarProductos();
+    }
+
+    function cancelarFormulario() {
+      ocultarFormulario();
+      Swal.fire('Cancelado', 'Operación cancelada.', 'info');
+    }
+
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const idInput = document.getElementById('productoId').value;
+      const nombre = document.getElementById('nombre').value.trim();
+      const categoria = document.getElementById('categoria').value;
+      const precio = parseFloat(document.getElementById('precio').value);
+      const cantidad = parseInt(document.getElementById('cantidad').value);
+
+      if (!nombre || !categoria || isNaN(precio) || isNaN(cantidad)) {
+        Swal.fire('Campos vacíos', 'Por favor completa todos los campos correctamente.', 'warning');
+        return;
+      }
+
+      if (idInput) {
+        Swal.fire({
+          title: 'Confirmar modificación',
+          text: 'Estas seguro que quieres modificar este producto?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Sí, modificar',
+          cancelButtonText: 'Cancelar'
+        }).then(result => {
+          if (result.isConfirmed) {
+            const index = productos.findIndex(p => p.id === idInput);
+            if (index !== -1) {
+              productos[index] = { id: idInput, nombre, categoria, precio, cantidad };
+              localStorage.setItem('productos', JSON.stringify(productos));
+              Swal.fire('Modificado', 'Producto modificado exitosamente.', 'success');
+              ocultarFormulario();
+            }
+          }
+        });
+      } else {
+        const nuevoId = 'P' + Date.now();
+        productos.push({ id: nuevoId, nombre, categoria, precio, cantidad });
+        localStorage.setItem('productos', JSON.stringify(productos));
+        Swal.fire('Agregado', 'Producto agregado exitosamente.', 'success');
+        ocultarFormulario();
+      }
+    }
+
+    mostrarProductos();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

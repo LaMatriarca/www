@@ -1,0 +1,614 @@
+[17-May-2025 19:55:35 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:54 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:55 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:55 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:56 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:56 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:55:56 UTC] PHP Parse error:  syntax error, unexpected token "require" in C:\laragon\www\TICKET\index.php on line 4
+[17-May-2025 19:57:08 UTC] PHP Parse error:  Unmatched '}' in C:\laragon\www\TICKET\index.php on line 6
+[17-May-2025 19:57:09 UTC] PHP Parse error:  Unmatched '}' in C:\laragon\www\TICKET\index.php on line 6
+[17-May-2025 19:57:41 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "," or ";" in C:\laragon\www\TICKET\conexion.php on line 5
+[17-May-2025 19:57:41 UTC] PHP Parse error:  syntax error, unexpected token ":", expecting "," or ";" in C:\laragon\www\TICKET\conexion.php on line 5
+[17-May-2025 20:00:00 UTC] PHP Warning:  Undefined variable $mysqli in C:\laragon\www\TICKET\conexion.php on line 2
+[17-May-2025 20:00:00 UTC] PHP Fatal error:  Uncaught Error: Class name must be a valid object or a string in C:\laragon\www\TICKET\conexion.php:2
+Stack trace:
+#0 C:\laragon\www\TICKET\index.php(3): require()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\conexion.php on line 2
+[17-May-2025 20:03:08 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Not a PNG file: images/artelogo.png in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1286): FPDF->Error('Not a PNG file:...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1277): FPDF->_parsepngstream(Resource id #7, 'images/artelogo...')
+#2 C:\laragon\www\TICKET\fpdf\fpdf.php(890): FPDF->_parsepng('images/artelogo...')
+#3 C:\laragon\www\TICKET\index.php(22): FPDF->Image('images/artelogo...', 15, 2)
+#4 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[17-May-2025 20:08:20 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "C", expecting ")" in C:\laragon\www\TICKET\index.php on line 24
+[17-May-2025 20:08:21 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "C", expecting ")" in C:\laragon\www\TICKET\index.php on line 24
+[18-May-2025 05:41:02 UTC] PHP Parse error:  syntax error, unexpected single-quoted string ",0,1,", expecting ")" in C:\laragon\www\TICKET\index.php on line 52
+[18-May-2025 05:41:38 UTC] PHP Warning:  Undefined array key "precio" in C:\laragon\www\TICKET\index.php on line 46
+[18-May-2025 05:41:38 UTC] PHP Warning:  Undefined array key "precio" in C:\laragon\www\TICKET\index.php on line 46
+[18-May-2025 05:41:38 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(56): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 05:46:44 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\index.php on line 50
+[18-May-2025 05:46:44 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\index.php on line 50
+[18-May-2025 05:46:44 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(57): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 05:46:45 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\index.php on line 50
+[18-May-2025 05:46:45 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\index.php on line 50
+[18-May-2025 05:46:45 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(57): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 05:56:19 UTC] PHP Parse error:  syntax error, unexpected variable "$idVenta" in C:\laragon\www\TICKET\index.php on line 8
+[18-May-2025 05:56:22 UTC] PHP Parse error:  syntax error, unexpected variable "$idVenta" in C:\laragon\www\TICKET\index.php on line 8
+[18-May-2025 05:59:14 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 14
+[18-May-2025 05:59:14 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 34
+[18-May-2025 05:59:14 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(66): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:12:43 UTC] PHP Fatal error:  Uncaught Error: Cannot access protected property FPDF::$lMargin in C:\laragon\www\TICKET\index.php:66
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 66
+[18-May-2025 06:12:45 UTC] PHP Fatal error:  Uncaught Error: Cannot access protected property FPDF::$lMargin in C:\laragon\www\TICKET\index.php:66
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 66
+[18-May-2025 06:13:10 UTC] PHP Fatal error:  Uncaught Error: Cannot access protected property FPDF::$lMargin in C:\laragon\www\TICKET\index.php:66
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 66
+[18-May-2025 06:18:10 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "row_venta" in C:\laragon\www\TICKET\index.php:75
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 75
+[18-May-2025 06:18:12 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "row_venta" in C:\laragon\www\TICKET\index.php:75
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 75
+[18-May-2025 06:20:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%Y') AS fecha_venta,DATE_FORMAT(fecha, '%H:'%i') AS hora  
+ FROM ventas WHERE i' at line 1 in C:\laragon\www\TICKET\index.php:12
+Stack trace:
+#0 C:\laragon\www\TICKET\index.php(12): mysqli->query('SELECT folio, t...')
+#1 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 12
+[18-May-2025 06:20:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%Y') AS fecha_venta,DATE_FORMAT(fecha, '%H:'%i') AS hora  
+ FROM ventas WHERE i' at line 1 in C:\laragon\www\TICKET\index.php:12
+Stack trace:
+#0 C:\laragon\www\TICKET\index.php(12): mysqli->query('SELECT folio, t...')
+#1 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 12
+[18-May-2025 06:29:40 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "helpers/NumeroALetras.php" in C:\laragon\www\TICKET\index.php on line 5
+[18-May-2025 06:29:53 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "MONEDA_LETRA" in C:\laragon\www\TICKET\index.php:74
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 74
+[18-May-2025 06:31:28 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "MONEDA_LETRA" in C:\laragon\www\TICKET\index.php:75
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 75
+[18-May-2025 06:31:29 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "MONEDA_LETRA" in C:\laragon\www\TICKET\index.php:75
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\index.php on line 75
+[18-May-2025 06:31:44 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 18
+[18-May-2025 06:31:44 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 38
+[18-May-2025 06:31:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 114
+[18-May-2025 06:31:44 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:31:44 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 79
+[18-May-2025 06:31:44 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 80
+[18-May-2025 06:31:44 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(86): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:35:41 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 18
+[18-May-2025 06:35:41 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 38
+[18-May-2025 06:35:41 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 114
+[18-May-2025 06:35:41 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:35:41 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 79
+[18-May-2025 06:35:41 UTC] PHP Warning:  Trying to access array offset on null in C:\laragon\www\TICKET\index.php on line 80
+[18-May-2025 06:35:41 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index.php(86): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:44:26 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:44:26 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(86): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:44:31 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:44:31 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(86): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:48:33 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:48:33 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(88): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:48:33 UTC] PHP Warning:  Undefined variable $decimales in C:\laragon\www\TICKET\helpers\NumeroALetras.php on line 128
+[18-May-2025 06:48:33 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(88): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 06:50:29 UTC] PHP Fatal error:  Uncaught ArgumentCountError: mb_convert_encoding() expects at least 2 arguments, 1 given in C:\laragon\www\TICKET\index2.php:78
+Stack trace:
+#0 C:\laragon\www\TICKET\index2.php(78): mb_convert_encoding('Ganancias del d...')
+#1 {main}
+  thrown in C:\laragon\www\TICKET\index2.php on line 78
+[18-May-2025 06:52:07 UTC] PHP Warning:  file_put_contents(ticket/ticket_ventas_2025-05-18.pdf): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\fpdf\fpdf.php on line 1026
+[18-May-2025 06:52:07 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Unable to create output file: ticket/ticket_ventas_2025-05-18.pdf in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1027): FPDF->Error('Unable to creat...')
+#1 C:\laragon\www\TICKET\index2.php(88): FPDF->Output('F', 'ticket/ticket_v...')
+#2 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:04:55 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 13
+[18-May-2025 07:04:55 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(90): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:04:56 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 13
+[18-May-2025 07:04:56 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(90): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:10:01 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 3
+[18-May-2025 07:10:01 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(90): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:10:02 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 3
+[18-May-2025 07:10:02 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(90): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:10:06 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 3
+[18-May-2025 07:10:06 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(90): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:10:47 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "login.php" in C:\laragon\www\TICKET\index2.php on line 6
+[18-May-2025 07:10:49 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "login.php" in C:\laragon\www\TICKET\index2.php on line 6
+[18-May-2025 07:11:00 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\TICKET\login.php on line 2) in C:\laragon\www\TICKET\index2.php on line 7
+[18-May-2025 07:11:00 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 8
+[18-May-2025 07:11:01 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(92): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:11:23 UTC] PHP Warning:  Undefined array key "empleado_nombre" in C:\laragon\www\TICKET\index2.php on line 7
+[18-May-2025 07:11:23 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(91): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 07:11:44 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry 'yoss' for key 'empleados.usuario' in C:\laragon\www\TICKET\registrarempleado.php:11
+Stack trace:
+#0 C:\laragon\www\TICKET\registrarempleado.php(11): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\registrarempleado.php on line 11
+[18-May-2025 07:20:20 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from C:\laragon\www\TICKET\index2.php on line 2) in C:\laragon\www\TICKET\login.php on line 4
+[18-May-2025 07:20:20 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\index2.php(100): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[18-May-2025 19:37:11 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:37:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:37:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:39:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:41:43 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:22 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:24 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:25 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:42:37 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:30 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:31 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined array key "monto_apertura" in C:\laragon\www\TICKET\abrir_caja.php on line 10
+[18-May-2025 19:43:32 UTC] PHP Warning:  Undefined variable $id_apertura in C:\laragon\www\TICKET\abrir_caja.php on line 19
+[18-May-2025 19:48:07 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 44
+[18-May-2025 19:48:07 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 44
+[18-May-2025 19:48:07 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 44
+[18-May-2025 19:48:07 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 44
+[18-May-2025 19:48:07 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 44
+[18-May-2025 19:56:21 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:56:21 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:56:21 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:56:21 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:56:21 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:58:43 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:58:43 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:58:43 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:58:43 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[18-May-2025 19:58:43 UTC] PHP Warning:  Undefined array key "producto_id" in C:\laragon\www\TICKET\puntodeventa.php on line 43
+[19-May-2025 18:11:07 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:23
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(23): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 23
+[19-May-2025 18:11:10 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:23
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(23): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 23
+[20-May-2025 06:27:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:23
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(23): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 23
+[20-May-2025 06:27:51 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:23
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(23): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 23
+[20-May-2025 06:27:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:23
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(23): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 23
+[20-May-2025 06:31:57 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:29
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(29): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 29
+[20-May-2025 06:32:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:29
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(29): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 29
+[20-May-2025 06:32:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Data too long for column 'folio' at row 1 in C:\laragon\www\TICKET\guardar_venta.php:29
+Stack trace:
+#0 C:\laragon\www\TICKET\guardar_venta.php(29): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\laragon\www\TICKET\guardar_venta.php on line 29
+[20-May-2025 08:35:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'contrasena' in 'field list' in C:\laragon\www\TICKET\registrarempleado.php:33
+Stack trace:
+#0 C:\laragon\www\TICKET\registrarempleado.php(33): mysqli->prepare('INSERT INTO cli...')
+#1 {main}
+  thrown in C:\laragon\www\TICKET\registrarempleado.php on line 33
+[20-May-2025 09:25:43 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:48 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:50 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:52 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:25:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:26:40 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:26:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:26:42 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:26:42 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:31:26 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:31:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:31:33 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:31:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:32:31 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\laragon\www\TICKET\puntodeventa.php on line 243
+[20-May-2025 09:33:03 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:06 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:35 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:41 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:44 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:33:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:35:05 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:35:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:37:19 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:37:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:40:48 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:40:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:40:51 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:40:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:40:54 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:40:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:13 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:15 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:27 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:44:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:46:12 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:46:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 72
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 78
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 78
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 78
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 78
+[20-May-2025 09:49:21 UTC] PHP Deprecated:  Function utf8_decode() is deprecated in C:\laragon\www\TICKET\cerrar_caja.php on line 78
+[20-May-2025 09:49:21 UTC] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in C:\laragon\www\TICKET\fpdf\fpdf.php:267
+Stack trace:
+#0 C:\laragon\www\TICKET\fpdf\fpdf.php(1058): FPDF->Error('Some data has a...')
+#1 C:\laragon\www\TICKET\fpdf\fpdf.php(1004): FPDF->_checkoutput()
+#2 C:\laragon\www\TICKET\cerrar_caja.php(87): FPDF->Output()
+#3 {main}
+  thrown in C:\laragon\www\TICKET\fpdf\fpdf.php on line 267
+[20-May-2025 09:49:45 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:49:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 5
+[20-May-2025 09:50:15 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:50:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:50:23 UTC] PHP Warning:  require(fpdf.php): Failed to open stream: No such file or directory in C:\laragon\www\TICKET\cerrar_caja.php on line 2
+[20-May-2025 09:50:23 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'fpdf.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\TICKET\cerrar_caja.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\laragon\www\TICKET\cerrar_caja.php on line 2

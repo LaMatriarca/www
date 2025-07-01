@@ -1,0 +1,154 @@
+/* Estilos generales */
+body {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.578), rgba(0,0,0,0.4)),
+        url('img/fondo_login.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor central */
+.container {
+    width: 400px;
+    background: rgba(25, 24, 24, 0.845);
+    padding: 30px 25px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 110px;
+    margin-bottom: 25px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+}
+
+/* Títulos */
+h1, h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1.8px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    border-color: #f1c40f;
+    outline: none;
+    box-shadow: 0 0 8px rgba(241, 196, 15, 0.5);
+}
+
+/* Botones */
+button, .btn {
+    background-color: #f1c40f;      /* Amarillo vibrante */
+    color: #222;                    /* Texto oscuro */
+    border: none;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(241, 196, 15, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 8px 10px;
+    display: inline-block;
+    user-select: none;
+}
+
+button:hover, .btn:hover {
+    background-color: #d4ac0d;
+    box-shadow: 0 6px 12px rgba(212, 172, 13, 0.6);
+}
+
+button:active, .btn:active {
+    background-color: #b49408;
+    box-shadow: 0 2px 4px rgba(180, 148, 8, 0.8);
+    transform: translateY(1px);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px rgba(241, 196, 15, 0.8);
+}
+
+/* Grupos de botones */
+.button-group {
+    margin-top: 10px;
+}
+
+/* Mensajes */
+.mensaje {
+    color: #e74c3c;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Enlaces para registro */
+.registro-links p {
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.registro-links button {
+    width: 180px;
+    margin: 5px 10px;
+}
+
+/* Botón del ojo para mostrar contraseña */
+button[onclick="togglePassword()"] {
+    position: relative;
+    top: -68px;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    font-size: 18px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Para evitar que el botón de mostrar contraseña jale el texto */
+button[onclick="togglePassword()"]:focus {
+    outline: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 20px 15px;
+        margin: 40px auto;
+    }
+
+    button, .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .registro-links button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}

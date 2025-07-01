@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Empleados - Panadería ARTEPAN</title>
+  <style>
+    /* ... mismo CSS que ya tienes, no fue modificado ... */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('panas.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+      backdrop-filter: blur(1px);
+    }
+
+    header {
+      background-color: #935F2E;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header img {
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 20px;
+    }
+
+    button {
+      background-color: #D9A74A;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #B8872D;
+    }
+
+    main {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #935F2E;
+      color: white;
+    }
+
+    td {
+      background-color: #fff8ee;
+    }
+
+    tr.selected {
+      background-color: #D9A74A !important;
+      color: white;
+      font-weight: bold;
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(2px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modalContent {
+      background-color: #fff8ee;
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      color: #935F2E;
+    }
+
+    #modalContent h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #modalContent label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    #modalContent input {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      border: 1px solid #935F2E;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    #modalContent .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    #modalContent button {
+      width: 48%;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      header img {
+        margin: 0 0 10px 0;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpeg" alt="Logo ARTEPAN" />
+  <h2>Empleados - Panadería ARTEPAN</h2>
+</header>
+
+ <div class="buttons">
+  <button id="btnAgregar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M13 11h8v2h-8v8h-2v-8H3v-2h8V3h2v8z"/>
+    </svg>
+    Agregar
+  </button>
+
+  <button id="btnModificar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0L15.13 4.46l3.75 3.75 1.83-1.17z"/>
+    </svg>
+    Modificar
+  </button>
+
+  <button onclick="location.href='Inventario.html'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+      <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
+    </svg>
+    Volver
+  </button>
+</div>
+
+
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Puesto</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="tablaEmpleados">
+      <tr>
+        <td colspan="5">No hay empleados agregados</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<div id="modal">
+  <div id="modalContent">
+    <h3 id="modalTitulo">Agregar Empleado</h3>
+    <form id="formEmpleado">
+      <label for="inputID">ID</label>
+      <input type="text" id="inputID" name="id" required />
+
+      <label for="inputNombre">Nombre</label>
+      <input type="text" id="inputNombre" name="nombre" required />
+
+      <label for="inputPuesto">Puesto</label>
+      <input type="text" id="inputPuesto" name="puesto" required />
+
+      <label for="inputTelefono">Teléfono</label>
+      <input type="tel" id="inputTelefono" name="telefono" pattern="[0-9\-+\s]{7,15}" required />
+
+      <label for="inputEmail">Email</label>
+      <input type="email" id="inputEmail" name="email" required />
+
+      <div class="modal-buttons">
+        <button type="submit" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnCancelar">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  let empleados = [];
+  let filaSeleccionada = null;
+  let modoEdicion = false;
+
+  const tablaEmpleados = document.getElementById('tablaEmpleados');
+  const modal = document.getElementById('modal');
+  const modalTitulo = document.getElementById('modalTitulo');
+  const formEmpleado = document.getElementById('formEmpleado');
+  const btnAgregar = document.getElementById('btnAgregar');
+  const btnModificar = document.getElementById('btnModificar');
+  const btnCancelar = document.getElementById('btnCancelar');
+
+  function cargarDesdeLocalStorage() {
+    const datos = localStorage.getItem('empleados');
+    empleados = datos ? JSON.parse(datos) : [];
+    actualizarTabla();
+  }
+
+  function guardarEnLocalStorage() {
+    localStorage.setItem('empleados', JSON.stringify(empleados));
+  }
+
+  function actualizarTabla() {
+    tablaEmpleados.innerHTML = '';
+    if (empleados.length === 0) {
+      const tr = document.createElement('tr');
+      const td = document.createElement('td');
+      td.colSpan = 5;
+      td.textContent = 'No hay empleados agregados';
+      tr.appendChild(td);
+      tablaEmpleados.appendChild(tr);
+      return;
+    }
+
+    empleados.forEach((emp, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${emp.id}</td>
+        <td>${emp.nombre}</td>
+        <td>${emp.puesto}</td>
+        <td>${emp.telefono}</td>
+        <td>${emp.email}</td>
+      `;
+      tr.addEventListener('click', () => seleccionarFila(tr, index));
+      tablaEmpleados.appendChild(tr);
+    });
+    filaSeleccionada = null;
+  }
+
+  function seleccionarFila(tr, index) {
+    [...tablaEmpleados.children].forEach(fila => fila.classList.remove('selected'));
+    tr.classList.add('selected');
+    filaSeleccionada = index;
+  }
+
+  function abrirModal(editar = false) {
+    modoEdicion = editar;
+    if (modoEdicion) {
+      if (filaSeleccionada === null) {
+        Swal.fire('Selecciona un empleado', 'Haz clic en una fila para modificarla.', 'warning');
+        return;
+      }
+      modalTitulo.textContent = 'Modificar Empleado';
+      const emp = empleados[filaSeleccionada];
+      formEmpleado.inputID.value = emp.id;
+      formEmpleado.inputNombre.value = emp.nombre;
+      formEmpleado.inputPuesto.value = emp.puesto;
+      formEmpleado.inputTelefono.value = emp.telefono;
+      formEmpleado.inputEmail.value = emp.email;
+      formEmpleado.inputID.disabled = true;
+    } else {
+      modalTitulo.textContent = 'Agregar Empleado';
+      formEmpleado.reset();
+      formEmpleado.inputID.disabled = false;
+    }
+    modal.style.display = 'flex';
+  }
+
+  function cerrarModal() {
+    modal.style.display = 'none';
+  }
+
+  function idExiste(id) {
+    return empleados.some(emp => emp.id === id);
+  }
+
+  formEmpleado.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const id = formEmpleado.inputID.value.trim();
+    const nombre = formEmpleado.inputNombre.value.trim();
+    const puesto = formEmpleado.inputPuesto.value.trim();
+    const telefono = formEmpleado.inputTelefono.value.trim();
+    const email = formEmpleado.inputEmail.value.trim();
+
+    if (!id || !nombre || !puesto || !telefono || !email) {
+      Swal.fire('Campos vacíos', 'Por favor, completa todos los campos.', 'error');
+      return;
+    }
+
+    if (!modoEdicion && idExiste(id)) {
+      Swal.fire('ID duplicado', 'Ese ID ya existe, usa uno diferente.', 'error');
+      return;
+    }
+
+    if (modoEdicion) {
+      empleados[filaSeleccionada] = { id, nombre, puesto, telefono, email };
+      Swal.fire('Modificado', 'Empleado modificado correctamente.', 'success');
+    } else {
+      empleados.push({ id, nombre, puesto, telefono, email });
+      Swal.fire('Agregado', 'Empleado agregado correctamente.', 'success');
+    }
+
+    guardarEnLocalStorage();
+    actualizarTabla();
+    cerrarModal();
+  });
+
+  btnAgregar.addEventListener('click', () => abrirModal(false));
+  btnModificar.addEventListener('click', () => abrirModal(true));
+
+  btnCancelar.addEventListener('click', e => {
+    e.preventDefault();
+    cerrarModal();
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target === modal) cerrarModal();
+  });
+
+  window.onload = cargarDesdeLocalStorage;
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

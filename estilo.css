@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: 'Mega Surprise', sans-serif;
+    background-color: #1a120b;
+    color: #5d3b1f;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.punto-venta-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.barra-lateral {
+    width: 180px;
+    background-color: #3d2b17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra-lateral h1 {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 2.5rem;
+    color: #d2691e;
+    margin: 0;
+}
+
+.catalogo-carrito-container {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent;
+    align-items: stretch;
+}
+
+.catalogo {
+    background: #fff;
+    flex: 2;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias {
+    margin-bottom: 15px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    background: #fff8dc;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(210,105,30,0.3);
+}
+
+.producto img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin: 5px 0;
+    color: #5d3b1f;
+}
+
+.producto p {
+    font-weight: bold;
+    background-color: #f5deb3;
+    border-radius: 12px;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #a0522d;
+}
+
+/* Carrito */
+.carrito {
+    flex: 1;
+    background: #f0e2d3;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito h2 {
+    color: #a0522d;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d2691e;
+    padding-bottom: 8px;
+}
+
+#items-carrito {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#total {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 10px 0;
+    color: #7f3f00;
+}
+
+#generar-ticket {
+    background-color: #d2691e;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#generar-ticket:hover {
+    background-color: #a0522d;
+}

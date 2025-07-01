@@ -1,0 +1,304 @@
+
+/* === Fuentes y Estilos Generales === */
+body {
+    font-family: 'Mega Surprise', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #14100f;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f5efed; /* Texto marrón oscuro */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+h1, h2 {
+    font-family: 'Mega Surprise', sans-serif;
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 1px;
+}
+
+h1 {
+    color: #141210; /* Café oscuro */
+    text-align: center;
+    text-shadow: 4px 4px 2px rgba(248, 244, 244, 0.929);
+    font-size: 5em;
+    margin-bottom: 30px;
+    
+}
+.logo-artepan {
+    display: block;
+    margin: px auto 0 auto; /* arriba 10px, auto en los lados para centrar */
+    height: 130px; /* ajusta a lo que necesites */
+    object-fit: contain;
+}
+/* === Contenedor Principal === */
+.container {
+    display: flex;
+    gap: 50px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* === Catálogo de Productos === */
+.catalogo {
+    background: rgb(255, 253, 251);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(171, 169, 169, 0.934);
+    
+    max-width: 1200px;  /* ancho máximo deseado */
+    width: 150%;         /* ocupa el 90% del ancho del body */
+    margin: 0 auto;     /* centrado horizontal */
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    border: 1px solid #E0E0E0;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(237, 235, 235, 0.1);
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin: 10px 0;
+    color: #e7e3e1;
+}
+
+.producto p {
+    font-weight: bold;
+    color: #A0522D; /* Café rojizo */
+    background-color: #FFF8DC; /* Fondo crema */
+    padding: 3px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+
+/* === Carrito de Compras === */
+.carrito {
+    background: rgb(67, 63, 57);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(241, 238, 238, 0.934);
+    flex: 1;
+    text-align: center; /* Centrado */
+    max-height: 200px; /* <-- ajusta este valor */
+    overflow-y: auto;
+    flex: 1;
+  padding: 20px;
+  background-color: #eeeeee;
+  border-left: 2px solid #ccc;
+  
+}
+
+.carrito h2 {
+    color: #14100f;
+    border-bottom: 2px solid #FFAB91;
+    padding-bottom: 10px;
+}
+
+#items-carrito {
+    margin: 15px 0;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #E0E0E0;
+}
+
+#total {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #1d1513;
+}
+
+/* === Botón Generar Ticket === */
+#generar-ticket {
+    background: #1f1b18; /* Café cálido */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#generar-ticket:hover {
+    background: #8B4513; /* Café oscuro al pasar el mouse */
+}
+.catalogo {
+    margin-top: 20px;
+}
+
+/* === Estilos para los botones de categoría === */
+.categorias {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-categoria {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    color: #5D4037;
+}
+
+.btn-categoria:hover {
+    background-color: #D2691E;
+    color: white;
+}
+
+.btn-categoria.active {
+    background-color: #8B4513; /* Café oscuro */
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Estilos para el modal del ticket */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: rgb(23, 16, 16);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.ticket-total {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed #211818;
+}
+
+.pago-input {
+    margin: 15px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pago-input input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#ticket-detalle div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.catalogo-carrito-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;        /* ✅ ocupa todo el ancho */
+    padding: 20px 40px; /* espacio interior */
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.92); /* fondo blanco translúcido */
+    border-radius: 12px;
+}
+
+
+.catalogo {
+    flex: 8; /* El catálogo ocupa más espacio */
+}
+.carrito {
+    flex: 1;
+    max-width: 500px;
+    background: rgb(237, 189, 118);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 9px 9px 8px rgba(0,0,0,0.1);
+     max-height: 500px; /* o el tamaño que prefieras */
+    overflow-y: auto;  /* activa scroll si el contenido se desborda */
+}
+
+
+.punto-venta-layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.barra-lateral {
+  background-color: #1a120b; /* fondo oscuro como en tu imagen */
+  width: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.barra-lateral h1 {
+  color: #f0e5dc;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 2.5rem;
+  transform: rotate(180deg); /* para que el texto suba desde abajo */
+}
+

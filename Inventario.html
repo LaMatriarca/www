@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú Inventario - Panadería</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      background-image: url('Pan.png'); 
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sidebar {
+      width: 280px;
+      background: rgba(0, 0, 0, 0.95);
+      color: #4b2e1e;
+      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+      border-right: 4px solid #d8a35d;
+    }
+
+    .sidebar-footer {
+      text-align: center;
+      width: 100%;
+    }
+
+    .sidebar-footer img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #d8a35d;
+    }
+
+    .sidebar-footer h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 28px;
+      color: #a0522d;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: #d8a35d;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 15px;
+      text-align: center;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .card:hover {
+      background-color: #c98b45;
+      transform: scale(1.05);
+    }
+
+    .card i {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.2s;
+      z-index: 999;
+    }
+
+    .back-button i {
+      font-size: 18px;
+    }
+
+    .back-button:hover {
+      background-color: #884923;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botón fuera del sidebar, en esquina superior derecha -->
+  <button class="back-button" onclick="location.href='cortes.php'">
+    <i class="fas fa-home"></i>
+    Regresar a ARTEPAN
+  </button>
+
+  <div class="sidebar">
+    <div class="sidebar-footer">
+      <img src="logo.jpeg" alt="Panadería Logo">
+      <h2>Panadería<br>ARTEPAN</h2>
+
+      <div class="card" onclick="location.href='productos.html'">
+        <i class="fas fa-bread-slice"></i>
+        <p>Productos</p>
+      </div>
+
+      <div class="card" onclick="location.href='empleados.html'">
+        <i class="fas fa-user-friends"></i>
+        <p>Empleados</p>
+      </div>
+
+      <div class="card" onclick="location.href='ingredientes.html'">
+        <i class="fas fa-seedling"></i>
+        <p>Ingredientes</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

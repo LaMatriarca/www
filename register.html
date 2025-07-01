@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro - ARTEPAN</title>
+  <link rel="stylesheet" href="login/style.css" />
+</head>
+<body class="register">
+  <div class="container">
+    <img src="login/img/logo.png" alt="Logo de ARTEPAN" class="logo" />
+
+    <!-- Aquí ponemos el título dinámico -->
+    <h2 id="tituloRegistro">Registrarse</h2>
+
+  <form id="registroForm" method="POST" action="registrarempleado.php">
+  <label for="nombre">Nombre (será tu usuario):</label>
+  <input type="text" id="nombre" name="nombre" required />
+
+  <label for="telefono">Teléfono:</label>
+  <input type="text" id="telefono" name="telefono" required />
+
+  <label for="correo">Correo electrónico:</label>
+  <input type="email" id="correo" name="correo" required />
+
+  <label for="password">Contraseña:</label>
+  <input type="password" id="password" name="password" required />
+
+  <button type="submit">Registrarse</button>
+</form>
+
+
+    <button id="btnRegresar">Regresar</button>
+
+    <div id="confirmacion" style="display: none; margin-top: 10px;">
+      <p><em>¿Estás seguro de que quieres regresar?</em></p>
+      <button onclick="confirmarRegreso(true)">Sí</button>
+      <button onclick="confirmarRegreso(false)">No</button>
+    </div>
+  </div>
+<script>
+  document.getElementById('btnRegresar').addEventListener('click', function () {
+    document.getElementById('confirmacion').style.display = 'block';
+  });
+
+  function confirmarRegreso(confirmado) {
+    if (confirmado) {
+      window.location.href = 'login.php'; // Aquí se va a login.php
+    } else {
+      document.getElementById('confirmacion').style.display = 'none';
+    }
+  }
+</script>
+ 
+</body>
+</html>
