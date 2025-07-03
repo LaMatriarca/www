@@ -1,49 +1,59 @@
 <?php
-$con = new mysqli("localhost", "root", "", "artepan");
+header('Content-Type: application/json');
 
-// Validación de conexión
-if ($con->connect_error) {
-    die("Error de conexión: " . $con->connect_error);
-}
+$input = json_decode(file_get_contents('php://input'), true);
 
-// Recoger datos del formulario
-$nombre = trim($_POST['nombre'] ?? '');
-$telefono = trim($_POST['telefono'] ?? '');
-$correo = trim($_POST['correo'] ?? '');
-$contrasena = $_POST['password'] ?? '';
+$nombre = trim($input['nombre'] ?? '');
+$telefono = trim($input['telefono'] ?? '');
+$correo = trim($input['correo'] ?? '');
+$contrasena = $input['password'] ?? '';
 
+// Validación básica
 if (!$nombre || !$telefono || !$correo || !$contrasena) {
-    die("Todos los campos son obligatorios.");
+    echo json_encode(['success' => false, 'message' => 'Todos los campos son obligatorios.']);
+    exit;
 }
 if (!preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/', $nombre)) {
-    die("El nombre solo puede contener letras y espacios.");
+    echo json_encode(['success' => false, 'message' => 'Nombre inválido.']);
+    exit;
 }
-if (!preg_match('/^[0-9+\-\s]+$/', $telefono)) {
-    die("El teléfono solo puede contener números, +, - y espacios.");
+if (!preg_match('/^\d{10}$/', $telefono)) {
+    echo json_encode(['success' => false, 'message' => 'Teléfono inválido.']);
+    exit;
+}
+if (strlen($contrasena) < 8) {
+    echo json_encode(['success' => false, 'message' => 'La contraseña debe tener al menos 8 caracteres.']);
+    exit;
 }
 
-// Verificar si ya existe ese correo o nombre
-$stmtCheck = $con->prepare("SELECT id FROM clientes WHERE correo = ? OR nombre = ?");
-$stmtCheck->bind_param("ss", $correo, $nombre);
+$con = new mysqli("localhost", "root", "", "artepan");
+if ($con->connect_error) {
+    echo json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos.']);
+    exit;
+}
+
+// Validar si ya existe
+$stmtCheck = $con->prepare("SELECT id FROM clientes WHERE correo = ?");
+$stmtCheck->bind_param("s", $correo);
 $stmtCheck->execute();
 $resultCheck = $stmtCheck->get_result();
+
 if ($resultCheck->num_rows > 0) {
-    die("El nombre o correo ya están registrados.");
+    echo json_encode(['success' => false, 'message' => 'Este correo ya está registrado.']);
+    $stmtCheck->close();
+    $con->close();
+    exit;
 }
 
-// Encriptar contraseña
-$hashContrasena = password_hash($contrasena, PASSWORD_DEFAULT);
-
-// Insertar en la base de datos
+// Guardar
+$hash = password_hash($contrasena, PASSWORD_DEFAULT);
 $stmt = $con->prepare("INSERT INTO clientes (nombre, telefono, correo, password) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $nombre, $telefono, $correo, $hashContrasena);
+$stmt->bind_param("ssss", $nombre, $telefono, $correo, $hash);
 
 if ($stmt->execute()) {
-    echo "Cliente registrado correctamente.";
-    // También podrías redirigir:
-    header("Location: index.html");
+    echo json_encode(['success' => true, 'message' => 'Cliente registrado exitosamente.']);
 } else {
-    echo "Error al registrar cliente: " . $con->error;
+    echo json_encode(['success' => false, 'message' => 'Error al registrar: ' . $con->error]);
 }
 
 $stmt->close();
