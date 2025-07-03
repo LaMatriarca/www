@@ -35,7 +35,11 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
 
  
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.7.0/remixicon.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const usuarioLogueado = <?php echo isset($_SESSION['cliente_nombre']) ? 'true' : 'false'; ?>;
+  const clienteNombre = <?php echo isset($_SESSION['cliente_nombre']) ? json_encode($_SESSION['cliente_nombre']) : '""'; ?>;
+</script>
       <!--CSS -->
       <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -45,6 +49,7 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
       
 <?php if (isset($_SESSION['cliente_nombre'])): ?>
   <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['cliente_nombre']); ?>!</p>
+  
 <?php else: ?>
   <p>Bienvenido a ARTEPAN, visitante.</p>
 <?php endif; ?>
@@ -78,6 +83,7 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                 <li class="nav__item">
                     <a href="#visit" class="nav__link">Ubicación</a>
                 </li>
+                
             </ul>
 
             <!-- Aquí los botones ya bien ubicados (afuera del ul) -->
@@ -91,12 +97,14 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                 </div>
 
                 <!-- Botón Login -->
+              <!-- Botón Login -->
                 <div id="login" class="nav__login">
                     <button id="login-button" class="nav__login-button">
                         <i class="ri-login-box-fill"></i>
                     </button>
                 </div>
             </div>
+            
 
             <!-- Botón cerrar -->
             <div class="nav__close" id="nav-close">
@@ -588,9 +596,17 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
     <button id="confirmar-compra" class="button">Confirmar Compra</button>
   </div>
 </div>
+<script>
+  const usuarioLogueado = <?php echo isset($_SESSION['cliente_nombre']) ? 'true' : 'false'; ?>;
+</script>
+
+
+
 <script src="assets/js/scrollreveal.min.js"></script>
 
       <!-- MAIN JS-->
       <script src="assets/js/main.js"></script>
+      
    </body>
+   
 </html>

@@ -10,11 +10,16 @@ if ($con->connect_error) {
 $nombre = trim($_POST['nombre'] ?? '');
 $telefono = trim($_POST['telefono'] ?? '');
 $correo = trim($_POST['correo'] ?? '');
-$contrasena = $_POST['password'] ?? ''; // desde el input "password" del formulario
+$contrasena = $_POST['password'] ?? '';
 
-// Validaciones básicas
 if (!$nombre || !$telefono || !$correo || !$contrasena) {
     die("Todos los campos son obligatorios.");
+}
+if (!preg_match('/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/', $nombre)) {
+    die("El nombre solo puede contener letras y espacios.");
+}
+if (!preg_match('/^[0-9+\-\s]+$/', $telefono)) {
+    die("El teléfono solo puede contener números, +, - y espacios.");
 }
 
 // Verificar si ya existe ese correo o nombre

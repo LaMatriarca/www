@@ -218,6 +218,39 @@ function actualizarInstruccionesPago(tipo) {
 
 // Confirmar compra
 document.getElementById('confirmar-compra').addEventListener('click', () => {
+if (!usuarioLogueado) {
+  document.getElementById('modal-resumen').style.display = 'none';
+
+  Swal.fire({
+    title: '🍞 ¡Atención!',
+    text: 'Debes iniciar sesión o registrarte para confirmar tu compra.',
+    icon: 'warning',
+    showCancelButton: true,
+    showDenyButton: true,
+    confirmButtonText: 'Iniciar sesión',
+    denyButtonText: 'Registrarse',
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false,
+    reverseButtons: true,
+    background: '#f5e9dc', // Beige suave
+    color: '#4b3b2a',       // Texto marrón oscuro
+    confirmButtonColor: '#a67c52', // Café medio
+    denyButtonColor: '#d2a679',    // Beige-café claro
+    cancelButtonColor: '#8c735b'   // Café más oscuro
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = 'login.php';
+    } else if (result.isDenied) {
+      window.location.href = 'register.html';
+    } else if (result.isDismissed) {
+      // Si cancelan, opcionalmente vuelves a mostrar el modal
+      document.getElementById('modal-resumen').style.display = 'block';
+    }
+  });
+
+  return;
+}
+
   if (carrito.length === 0) {
     alert('El carrito está vacío.');
     return;
@@ -353,6 +386,8 @@ document.querySelectorAll('.btn-eliminar').forEach(button => {
             }
         });
     });
+
+    
 
 
                                                   // FUNCIONES PARA BOTON DE LOG
