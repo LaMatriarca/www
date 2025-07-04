@@ -198,29 +198,150 @@ function imprimirSuperTicket() {
         <html>
         <head>
           <title>Corte de caja general - Artepan</title>
+          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
           <style>
-            body { font-family: monospace; padding: 10px; }
-            h2 { text-align: center; }
-            table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-            th, td { border: 1px solid #000; padding: 5px; text-align: center; }
-            th { background-color: #eee; }
-            tfoot td { font-weight: bold; }
+            body {
+              font-family: 'Roboto', sans-serif;
+              background: #f5f7fa;
+              margin: 0;
+              padding: 20px;
+              color: #2c3e50;
+              -webkit-print-color-adjust: exact;
+            }
+            .ticket-container {
+              max-width: 700px;
+              margin: 0 auto;
+              background: #fff;
+              padding: 30px 40px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              border-radius: 8px;
+              border: 1px solid #e1e4e8;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              margin-bottom: 25px;
+              border-bottom: 2px solid #3498db;
+              padding-bottom: 15px;
+            }
+            .header img {
+              height: 50px;
+              margin-right: 15px;
+            }
+            .header h2 {
+              font-weight: 700;
+              font-size: 28px;
+              color: #2980b9;
+              margin: 0;
+            }
+            .date-range {
+              text-align: center;
+              font-size: 14px;
+              color: #7f8c8d;
+              margin-bottom: 30px;
+              letter-spacing: 0.05em;
+            }
+            table {
+              width: 100%;
+              border-collapse: separate;
+              border-spacing: 0 10px;
+              font-size: 15px;
+            }
+            thead th {
+              background: #3498db;
+              color: white;
+              padding: 12px 15px;
+              text-align: left;
+              font-weight: 700;
+              border-radius: 6px 6px 0 0;
+              letter-spacing: 0.05em;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            }
+            tbody tr {
+              background: #ecf0f1;
+              box-shadow: inset 0 -1px 0 #bdc3c7;
+              transition: background-color 0.25s ease;
+            }
+            tbody tr:hover {
+              background: #d6eaf8;
+            }
+            tbody td {
+              padding: 12px 15px;
+              vertical-align: middle;
+              border-radius: 0 0 6px 6px;
+            }
+            tbody td:first-child {
+              font-weight: 600;
+              color: #34495e;
+              text-align: left;
+              border-radius: 6px 0 0 6px;
+            }
+            tbody td:nth-child(n+2) {
+              text-align: right;
+              font-variant-numeric: tabular-nums;
+            }
+            tfoot td {
+              padding: 14px 15px;
+              font-weight: 700;
+              font-size: 16px;
+              border-top: 3px solid #3498db;
+              background: #d6eaf8;
+              border-radius: 0 0 6px 6px;
+            }
+            tfoot td[colspan="2"] {
+              text-align: left;
+              font-size: 17px;
+            }
+            .positive {
+              color: #27ae60;
+            }
+            .negative {
+              color: #c0392b;
+            }
+            .footer-note {
+              margin-top: 30px;
+              font-size: 13px;
+              color: #95a5a6;
+              text-align: center;
+              font-style: italic;
+              letter-spacing: 0.05em;
+            }
+            @media print {
+              body {
+                background: white;
+                margin: 0;
+                padding: 0;
+              }
+              .ticket-container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-width: 100%;
+              }
+              thead th, tfoot td {
+                -webkit-print-color-adjust: exact;
+              }
+            }
           </style>
         </head>
         <body>
-          <h2> - Corte de Caja -</h2>
-          <p>Desde: ${fechaInicio} Hasta: ${fechaFin}</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Apertura</th>
-                <th>Ventas</th>
-                <th>Cierre</th>
-                <th>Diferencia</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div class="ticket-container">
+            <div class="header">
+              <!-- <img src="https://artepan.com/logo.png" alt="Artepan Logo" /> -->
+              <h2>Artepan - Corte de Caja</h2>
+            </div>
+            <div class="date-range">Desde: ${fechaInicio} &nbsp;&nbsp;&nbsp; Hasta: ${fechaFin}</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Apertura</th>
+                  <th>Ventas</th>
+                  <th>Cierre</th>
+                  <th>Diferencia</th>
+                </tr>
+              </thead>
+              <tbody>
       `;
 
       data.forEach(corte => {
@@ -228,6 +349,7 @@ function imprimirSuperTicket() {
         if (parseFloat(corte.diferencia) < 0) {
           totalPerdidas += parseFloat(corte.diferencia);
         }
+        const diferenciaClass = parseFloat(corte.diferencia) < 0 ? "negative" : "positive";
 
         contenido += `
           <tr>
@@ -235,29 +357,31 @@ function imprimirSuperTicket() {
             <td>$${parseFloat(corte.apertura).toFixed(2)}</td>
             <td>$${parseFloat(corte.ventas).toFixed(2)}</td>
             <td>$${parseFloat(corte.cierre).toFixed(2)}</td>
-            <td style="color: ${corte.diferencia < 0 ? '#c0392b' : '#27ae60'};">
-              $${parseFloat(corte.diferencia).toFixed(2)}
-            </td>
+            <td class="${diferenciaClass}">$${parseFloat(corte.diferencia).toFixed(2)}</td>
           </tr>
         `;
       });
 
       contenido += `
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2">Totales</td>
-                <td>$${totalVentas.toFixed(2)}</td>
-                <td></td>
-                <td style="color: #c0392b;">$${totalPerdidas.toFixed(2)}</td>
-              </tr>
-            </tfoot>
-          </table>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">Totales</td>
+                  <td>$${totalVentas.toFixed(2)}</td>
+                  <td></td>
+                  <td class="negative">$${totalPerdidas.toFixed(2)}</td>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="footer-note">
+              Gracias por confiar en Artepan. ¡Que tengas un excelente día!
+            </div>
+          </div>
         </body>
         </html>
       `;
 
-      const ventanaImpresion = window.open('', '_blank', 'width=600,height=800');
+      const ventanaImpresion = window.open('', '_blank', 'width=700,height=900');
       ventanaImpresion.document.write(contenido);
       ventanaImpresion.document.close();
       ventanaImpresion.focus();
@@ -271,7 +395,6 @@ function imprimirSuperTicket() {
       alert('Error al obtener datos para imprimir.');
     });
 }
-
 function cargarCortes() {
   const fechaInicio = document.getElementById('fecha-inicio').value;
   const fechaFin = document.getElementById('fecha-fin').value;
