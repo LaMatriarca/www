@@ -342,14 +342,25 @@ h1 {
 }
 
 .logout-link {
-  display: block;
-  margin-top: 5px;
-  color: #c0392b;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #d7a86e;  /* color cálido */
+  color: #3e2723;             /* texto oscuro */
+  font-weight: bold;
+  border-radius: 6px;
   text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.logout-link:hover {
-  text-decoration: underline;
+.logout-link:hover,
+.logout-link:focus {
+  background-color: #b38647;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(179,134,71,0.7);
+  outline: none;
+  cursor: pointer;
 }
 .pedidos-lista {
     padding: 20px;
@@ -365,7 +376,9 @@ h1 {
     border-radius: 10px;
     color: #3e2723;
 }
-
+.new__description {
+   text-align: justify;
+}
 .pedido h3 {
     margin: 0;
     color: #5d4037;
@@ -425,3 +438,101 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+.help-panel {
+  position: fixed;
+  bottom: 90px;
+  left: 30px;
+  background: #fff;
+  color: #3E2723;
+  padding: 15px 20px;
+  border: 2px solid #D7A86E;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  z-index: 1400;
+  display: none;
+  width: 250px;
+  max-height: 220px; /* 👈 evita que se alargue de más */
+  overflow-y: auto;  /* 👈 si se pasa, pone scroll interno */
+  font-size: 14px;
+}
+.help-panel.visible {
+  display: block;
+}
+
+.help-float {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #D7A86E;
+  color: #3E2723;
+  padding: 14px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1500;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.help-float:hover {
+  background-color: #c38e5e;
+}
+/* Botón de ayuda flotante (posición izquierda) */
+
+
+/* Botón de volver arriba (posición derecha) */
+.scrollup {
+  right: 30px !important;
+  bottom: 30px !important;
+  z-index: 1500;
+}
+
+/* Panel de derechos de autor */
+/* Panel de derechos de autor */
+.copyright-panel {
+  position: fixed;
+  bottom: 90px;
+  left: 30px;
+  background: #fff;
+  color: #2B1B13; 
+  padding: 16px;
+  border: 2px solid #D7A86E;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  z-index: 1500;
+  display: none;
+  width: 280px;
+  font-size: 14px;
+}
+
+.copyright-panel.visible {
+  display: block;
+}
+
+.copyright-panel h3 {
+    
+  color: #1E120A; /* aún más oscuro para títulos */
+
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.copyright-panel ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.copyright-panel li {
+  margin-bottom: 8px;
+}
+
+.copyright-panel button {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background-color: #D7A86E;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
