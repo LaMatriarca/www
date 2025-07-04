@@ -2,8 +2,15 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+session_start();
 require 'conexion.php';
+
 header('Content-Type: application/json');
+
+if (!isset($_SESSION['cliente_id'])) {
+    echo json_encode(['success' => false, 'error' => 'No has iniciado sesión']);
+    exit;
+}
 
 if ($mysqli->connect_errno) {
     echo json_encode(['success' => false, 'error' => 'Error de conexión: ' . $mysqli->connect_error]);
@@ -17,13 +24,12 @@ if (!$data || empty($data['carrito']) || empty($data['forma_pago']) || empty($da
     exit;
 }
 
+$clienteId = (int) $_SESSION['cliente_id'];
 $carrito = $data['carrito'];
 $formaPago = $mysqli->real_escape_string($data['forma_pago']);
 $horaEntrega = $mysqli->real_escape_string($data['hora_entrega']);
 
-// Para insertar hora correctamente, revisa que el formato sea compatible con tu campo en BD
-// Por ejemplo, si es TIME, usa formato 'HH:MM:SS'
-// Si solo tienes '8:00', mejor agrega segundos: '08:00:00'
+// Formatear hora a HH:MM:SS si es necesario
 if (strlen($horaEntrega) <= 5) {
     $horaEntrega = date('H:i:s', strtotime($horaEntrega));
 }
@@ -35,7 +41,8 @@ foreach ($carrito as $item) {
 
 $folio = uniqid('PED-');
 
-$sql = "INSERT INTO pedidos (folio, total, forma_pago, hora_entrega) VALUES ('$folio', $total, '$formaPago', '$horaEntrega')";
+// Insertar pedido con id_cliente
+$sql = "INSERT INTO pedidos (folio, total, forma_pago, hora_entrega, id_cliente) VALUES ('$folio', $total, '$formaPago', '$horaEntrega', $clienteId)";
 if ($mysqli->query($sql)) {
     $idPedido = $mysqli->insert_id;
 

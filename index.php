@@ -98,11 +98,25 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
 
                 <!-- Botón Login -->
               <!-- Botón Login -->
-                <div id="login" class="nav__login">
-                    <button id="login-button" class="nav__login-button">
-                        <i class="ri-login-box-fill"></i>
-                    </button>
-                </div>
+                <!-- Botón Login / Usuario -->
+<div id="login" class="nav__login">
+    <?php if (isset($_SESSION['cliente_nombre'])): ?>
+        <div class="nav__user-menu">
+            <button class="nav__login-button">
+                <i class="ri-user-3-fill"></i> <?php echo htmlspecialchars($_SESSION['cliente_nombre']); ?>
+            </button>
+            <div class="nav__submenu">
+                <p>Hola, <?php echo htmlspecialchars($_SESSION['cliente_nombre']); ?></p>
+                 <button id="ver-pedidos-btn" class="ver-pedidos-link">Ver mis pedidos</button>
+                <a href="logout.php" class="logout-link">Cerrar sesión</a>
+            </div>
+        </div>
+    <?php else: ?>
+        <button id="login-button" class="nav__login-button">
+            <i class="ri-login-box-fill"></i>
+        </button>
+    <?php endif; ?>
+</div>
             </div>
             
 
@@ -596,6 +610,103 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
     <button id="confirmar-compra" class="button">Confirmar Compra</button>
   </div>
 </div>
+<!-- Modal de Pedidos -->
+<div id="modal-pedidos" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="cerrar-modal" id="cerrar-pedidos">&times;</span>
+    <h2>Mis Pedidos</h2>
+    <div id="contenido-pedidos">Cargando...</div>
+  </div>
+</div>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const userMenuBtn = document.querySelector('.nav__login-button');
+  const userSubmenu = document.querySelector('.nav__submenu');
+  const modalPedidos = document.getElementById('modal-pedidos');
+  const contenidoPedidos = document.getElementById('contenido-pedidos');
+  const cerrarModal = document.getElementById('cerrar-pedidos');
+  const verPedidosBtn = document.getElementById('ver-pedidos-btn');
+
+  // Mostrar y ocultar submenú
+  if (userMenuBtn && userSubmenu) {
+    userMenuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      userSubmenu.classList.toggle('visible');
+    });
+
+    // Cierra el submenú al hacer clic fuera
+    document.addEventListener('click', function (e) {
+      if (!userSubmenu.contains(e.target) && !userMenuBtn.contains(e.target)) {
+        userSubmenu.classList.remove('visible');
+      }
+    });
+  }
+
+  // Asignar funcionalidad botón "Ver mis pedidos"
+  if (verPedidosBtn && modalPedidos && contenidoPedidos) {
+    verPedidosBtn.addEventListener('click', function () {
+      modalPedidos.classList.add('show');
+      contenidoPedidos.innerHTML = 'Cargando...';
+
+      fetch('ver_pedidos.php')
+        .then(res => res.json()) // Cambiamos a JSON para procesar datos
+        .then(data => {
+          if (data.success) {
+            if (data.pedidos.length === 0) {
+              contenidoPedidos.innerHTML = '<p>No tienes pedidos aún.</p>';
+              return;
+            }
+
+            // Construimos el HTML con pedidos y detalles
+            let html = '';
+            data.pedidos.forEach(pedido => {
+              html += `
+                <div class="pedido">
+                  <h3>Pedido ${pedido.folio}</h3>
+                  <p><strong>Total:</strong> $${pedido.total}</p>
+                  <p><strong>Forma de pago:</strong> ${pedido.forma_pago}</p>
+                  <p><strong>Hora de entrega:</strong> ${pedido.hora_entrega}</p>
+                  <p><strong>Fecha:</strong> ${pedido.fecha}</p>
+                  <h4>Detalles:</h4>
+                  <ul>
+                    ${pedido.detalles.map(det => `<li>${det.cantidad} x ${det.nombre} - $${det.subtotal}</li>`).join('')}
+                  </ul>
+                </div>
+                <hr>
+              `;
+            });
+
+            contenidoPedidos.innerHTML = html;
+          } else {
+            contenidoPedidos.innerHTML = `<p>Error: ${data.error}</p>`;
+          }
+        })
+        .catch(err => {
+          contenidoPedidos.innerHTML = '<p>Error al cargar pedidos.</p>';
+          console.error(err);
+        });
+    });
+  }
+
+  // Cerrar modal al dar click en la "x"
+  if (cerrarModal && modalPedidos) {
+    cerrarModal.addEventListener('click', function () {
+      modalPedidos.classList.remove('show');
+    });
+  }
+
+  // Botón login (por si no está logueado)
+  const loginBtn = document.getElementById('login-button');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function () {
+      window.location.href = 'login.php';
+    });
+  }
+});
+</script>
 <script>
   const usuarioLogueado = <?php echo isset($_SESSION['cliente_nombre']) ? 'true' : 'false'; ?>;
 </script>

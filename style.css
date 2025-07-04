@@ -314,4 +314,114 @@ h1 {
   background-color: #c0392b;
 }
 
+.nav__user-menu {
+  position: relative;
+  display: inline-block;
+}
 
+.nav__submenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: none;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.nav__user-menu:hover .nav__submenu {
+  display: block;
+}
+
+.nav__submenu p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.logout-link {
+  display: block;
+  margin-top: 5px;
+  color: #c0392b;
+  text-decoration: none;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
+.pedidos-lista {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.pedido {
+    background-color: #fff8e1;
+    border: 1px solid #d7a86e;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: #3e2723;
+}
+
+.pedido h3 {
+    margin: 0;
+    color: #5d4037;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+
+  /* para centrar el contenido */
+  justify-content: center;
+  align-items: center;
+}
+.modal.show {
+  display: flex !important;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  color: #3e2723;
+}
+
+.cerrar-modal {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.ver-pedidos-link {
+  background-color: #d7a86e;
+  border: none;
+  padding: 8px 12px;
+  color: #3e2723;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.nav__submenu.visible {
+  display: block;
+}
+
+#ver-pedidos-btn {
+  margin-top: 6px;
+  background-color: #d7a86e;
+  border: none;
+  padding: 8px 12px;
+  color: #3e2723;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
