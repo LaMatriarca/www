@@ -108,6 +108,7 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
             <div class="nav__submenu">
                 <p>Hola, <?php echo htmlspecialchars($_SESSION['cliente_nombre']); ?></p>
                  <button id="ver-pedidos-btn" class="ver-pedidos-link">Ver mis pedidos</button>
+                 <br><br>
                 <a href="logout.php" class="logout-link">Cerrar sesión</a>
             </div>
         </div>
@@ -357,7 +358,7 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                      <div class="new__data">
                         <h2 class="new__title">Chocolatin</h2>
                         <p class="new__description">
-                           Aqui va su descripcion
+                           Delicioso pan suave y esponjoso, relleno de una generosa barra de chocolate que se derrite en cada bocado. Ideal para acompañar un café o disfrutar como un antojo dulce.
                         </p>
                      </div>
    
@@ -368,7 +369,8 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                      <div class="new__data">
                         <h2 class="new__title">Baguette</h2>
                         <p class="new__description">
-                           Aqui va su descripcion.
+                           Clásico pan francés de corteza dorada y crujiente, con un interior suave y aireado. Perfecto para preparar sándwiches, acompañar platillos o disfrutar con mantequilla.
+
                         </p>
                      </div>
    
@@ -379,7 +381,9 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                      <div class="new__data">
                         <h2 class="new__title">Cubilete</h2>
                         <p class="new__description">
-                           Aqui va su descripcion.
+                          Panecillo dulce con una textura suave y esponjosa, coronado con un toque de azúcar. Su sabor tradicional lo convierte en un favorito de todas las edades.
+
+
                         </p>
                      </div>
    
@@ -475,7 +479,7 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                   <img src="assets/img/bread-2.png" alt="image" class="about__bread">
                </div>
 
-               <img src="assets/img/donas3x2.jpg" alt="image" class="about__img">
+               <img src="assets/img/anunciobaguette.gif" alt="image" class="about__img">
             </div>
          </section>
       </main>
@@ -541,23 +545,51 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
                      </a>
                   </div>
                </div>
-            </div>
-            <div class="help-button">
-               <br><br><br><br><br>
-  <button onclick="document.getElementById('ayuda-descargas').classList.toggle('visible')">
-    Ayuda
+               <div>
+  <h3 class="footer__title">Legal</h3>
+  <ul class="footer__list">
+    <li>
+      <button onclick="document.getElementById('panel-copyright').classList.toggle('visible')" style="background: none; border: none; color: inherit; font-size: 15px; cursor: pointer; padding: 0;">
+        Derechos de autor
+      </button>
+    </li>
+  </ul>
+
+  
+</div>
+<div id="panel-copyright" class="copyright-panel">
+  <h3>Créditos / Derechos de autor</h3>
+<p>
+  Este sitio web ha sido desarrollado con fines informativos y comerciales para la panadería <strong>ARTEPAN</strong>. Algunos de los elementos visuales como íconos, tipografías y estilos fueron obtenidos de recursos libres y de uso público, respetando los términos de uso establecidos por sus respectivos autores.
+</p>
+
+<ul>
+  <li>📷 Algunas fotografías, especialmente las de productos reales como panes, baguettes y especialidades, son propiedad de <strong>ARTEPAN</strong> y fueron tomadas directamente en nuestro local. Queda prohibida su reproducción sin autorización.</li>
+  <li>🖼️ Otras imágenes de apoyo y ambientación fueron tomadas de bancos de imágenes libres de derechos como <a href="https://www.freepik.com/" target="_blank">Freepik</a> y <a href="https://unsplash.com/" target="_blank">Unsplash</a>, en cumplimiento con sus respectivas licencias.</li>
+  <li>🎨 Los íconos utilizados en esta web provienen del proyecto <a href="https://remixicon.com/" target="_blank">Remix Icon</a>, que ofrece gráficos gratuitos para proyectos personales y comerciales.</li>
+  <li>🔤 Tipografías y estilos visuales fueron adaptados desde <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> y otros frameworks CSS modernos.</li>
+</ul>
+
+<p>
+  Si consideras que algún contenido de este sitio infringe derechos de autor o deseas solicitar su retirada, puedes contactarnos al correo <a href="mailto:artepan@gmail.com">artepan@gmail.com</a>.
+</p>
+
+<p style="font-style: italic; font-size: 0.95em; color: #777;">
+  Última actualización de esta sección: julio 2025.
+</p>
+  <button onclick="document.getElementById('panel-copyright').classList.remove('visible')">
+    Cerrar
   </button>
 </div>
 
-<!-- Apartado de descargas -->
-<div id="ayuda-descargas" class="help-panel">
-  <h3>Descargas de ayuda</h3>
-  <ul>
-    <li><a href="assets/guiarapida.pdf" download>Descargar Guía Rápida</a></li>
-    <li><a href="assets/ManualDeUsuarioMigasoft.pdf" download>Descargar Manual de Usuario</a></li>
-  </ul>
-  <button onclick="document.getElementById('ayuda-descargas').classList.remove('visible')">Cerrar</button>
+            </div>
+           
+               <br><br><br><br><br>
+  
 </div>
+
+<!-- Apartado de descargas -->
+
 
          </div>
          
@@ -565,7 +597,13 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
          <span class="footer__copy">
             &#169; Todos los derechos reservados por Migasoft
          </span>
+
+         <div class="copyright-button">
+  
+</div>
+
       </footer>
+      
 
       <!--botón de volver arriba-->
       <a href="#" class="scrollup" id="scroll-up">
@@ -619,7 +657,18 @@ $result = $conn->query("SELECT id, nombre, precio, imagen FROM productos WHERE s
   </div>
 </div>
 
+ <a href="#" class="help-float" id="help-float">
+  <i class="ri-question-line"></i>
+</a>
 
+<div id="ayuda-descargas" class="help-panel">
+  <h3>Descargas de ayuda</h3>
+  <ul>
+    <li><a href="assets/img/GuiaRapidaMigasoft.pdf" download>Descargar Guía Rápida</a></li>
+    <li><a href="assets/img/ManualDeUsuarioMigasoft.pdf" download>Descargar Manual de Usuario</a></li>
+  </ul>
+  <button onclick="document.getElementById('ayuda-descargas').classList.remove('visible')">Cerrar</button>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -705,6 +754,16 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = 'login.php';
     });
   }
+
+   const helpBtn = document.getElementById('help-float');
+  const ayudaPanel = document.getElementById('ayuda-descargas');
+
+  if (helpBtn && ayudaPanel) {
+    helpBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      ayudaPanel.classList.toggle('visible');
+    });
+  }
 });
 </script>
 <script>
@@ -717,7 +776,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <!-- MAIN JS-->
       <script src="assets/js/main.js"></script>
-      
+     
    </body>
    
 </html>
