@@ -52,7 +52,19 @@ if (!isset($_SESSION['empleado_id'])) {
       </button>
     </div>
   </header>
+<div id="notificacion-pedidos" onclick="mostrarNotificaciones()" title="Pedidos nuevos">
+  <i class="fas fa-bell"></i>
+  <span id="contador-pedidos">0</span>
+</div>
 
+<div id="panel-pedidos" class="oculto">
+  <h4>Pedidos Recientes</h4>
+  <ul id="lista-pedidos"></ul>
+
+  <button id="btn-whatsapp" type="button">
+    <i class="fab fa-whatsapp"></i> Verificar pedidos en Whatsapp
+  </button>
+</div>
   <div class="main-container">
     <aside class="sidebar">
       <button onclick="mostrarSeccion('caja')">
@@ -120,197 +132,279 @@ if (!isset($_SESSION['empleado_id'])) {
       </section>
     </main>
   </div>
+  <!-- Botón de ayuda flotante -->
+<button id="btn-ayuda" class="btn-ayuda-flotante" title="Ayuda">
+  <i class="fas fa-question-circle"></i>
+</button>
 
-  <script>
-    let intervaloCortes;
+<!-- Panel ayuda -->
+<div id="panel-ayuda" class="panel-ayuda oculto">
+  <h3>Ayuda</h3>
+  <p>
+    Bienvenido al panel principal de Artepan.<br>
+    Usa los botones de navegación para moverte entre secciones.<br>
+    En "Caja" puedes registrar la apertura.<br>
+    En "Reportes" consulta cierres y ventas.<br><br>
+    Para más detalles, consulta:<br>
+    <a href="manual_usuario.pdf" target="_blank" rel="noopener noreferrer">Manual de Usuario</a><br>
+    <a href="guia_rapida.pdf" target="_blank" rel="noopener noreferrer">Guía Rápida</a><br><br>
+    Si necesitas más ayuda, contacta al administrador.
+  </p>
+</div>
 
-    function mostrarSeccion(id) {
-        const secciones = document.querySelectorAll('.contenido');
-        secciones.forEach(sec => sec.classList.add('oculto'));
-        document.getElementById(id).classList.remove('oculto');
+<script>
+ let intervaloCortes;
 
-        if (id === 'reportes') {
-            cargarCortes();
-            intervaloCortes = setInterval(cargarCortes, 5000);
-        } else {
-            clearInterval(intervaloCortes);
-        }
-    }
+function mostrarSeccion(id) {
+  const secciones = document.querySelectorAll('.contenido');
+  secciones.forEach(sec => sec.classList.add('oculto'));
+  document.getElementById(id).classList.remove('oculto');
 
-    function irInventario() {
-      window.location.href = 'inventario.html';
-    }
-    function imprimirSuperTicket() {
-    const fechaInicio = document.getElementById('fecha-inicio').value;
-    const fechaFin = document.getElementById('fecha-fin').value;
+  if (id === 'reportes') {
+    cargarCortes();
+    intervaloCortes = setInterval(cargarCortes, 5000);
+  } else {
+    clearInterval(intervaloCortes);
+  }
+}
 
-    if (!fechaInicio || !fechaFin) {
-        alert("Por favor, selecciona ambas fechas para imprimir.");
+function irInventario() {
+  window.location.href = 'inventario.html';
+}
+
+function imprimirSuperTicket() {
+  const fechaInicio = document.getElementById('fecha-inicio').value;
+  const fechaFin = document.getElementById('fecha-fin').value;
+
+  if (!fechaInicio || !fechaFin) {
+    alert("Por favor, selecciona ambas fechas para imprimir.");
+    return;
+  }
+
+  const url = `obtener_cortes.php?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        alert("No hay cortes para imprimir en ese rango de fechas.");
         return;
-    }
+      }
 
-    const url = `obtener_cortes.php?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}`;
+      let totalVentas = 0;
+      let totalPerdidas = 0;
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length === 0) {
-                alert("No hay cortes para imprimir en ese rango de fechas.");
-                return;
-            }
+      let contenido = `
+        <html>
+        <head>
+          <title>Corte de caja general - Artepan</title>
+          <style>
+            body { font-family: monospace; padding: 10px; }
+            h2 { text-align: center; }
+            table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+            th, td { border: 1px solid #000; padding: 5px; text-align: center; }
+            th { background-color: #eee; }
+            tfoot td { font-weight: bold; }
+          </style>
+        </head>
+        <body>
+          <h2> - Corte de Caja -</h2>
+          <p>Desde: ${fechaInicio} Hasta: ${fechaFin}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Apertura</th>
+                <th>Ventas</th>
+                <th>Cierre</th>
+                <th>Diferencia</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
 
-            // Variables para acumular totales
-            let totalVentas = 0;
-            let totalPerdidas = 0;
+      data.forEach(corte => {
+        totalVentas += parseFloat(corte.ventas);
+        if (parseFloat(corte.diferencia) < 0) {
+          totalPerdidas += parseFloat(corte.diferencia);
+        }
 
-            // Crear contenido HTML para el super ticket
-            let contenido = `
-                <html>
-                <head>
-                    <title>Corte de caja general - Artepan</title>
-                    <style>
-                        body { font-family: monospace; padding: 10px; }
-                        h2 { text-align: center; }
-                        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-                        th, td { border: 1px solid #000; padding: 5px; text-align: center; }
-                        th { background-color: #eee; }
-                        tfoot td { font-weight: bold; }
-                    </style>
-                </head>
-                <body>
-                    <h2> - Corte de Caja -</h2>
-                    <p>Desde: ${fechaInicio} Hasta: ${fechaFin}</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Apertura</th>
-                                <th>Ventas</th>
-                                <th>Cierre</th>
-                                <th>Diferencia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-            `;
+        contenido += `
+          <tr>
+            <td>${corte.fecha}</td>
+            <td>$${parseFloat(corte.apertura).toFixed(2)}</td>
+            <td>$${parseFloat(corte.ventas).toFixed(2)}</td>
+            <td>$${parseFloat(corte.cierre).toFixed(2)}</td>
+            <td style="color: ${corte.diferencia < 0 ? '#c0392b' : '#27ae60'};">
+              $${parseFloat(corte.diferencia).toFixed(2)}
+            </td>
+          </tr>
+        `;
+      });
 
-            data.forEach(corte => {
-                totalVentas += parseFloat(corte.ventas);
-                if (parseFloat(corte.diferencia) < 0) {
-                    totalPerdidas += parseFloat(corte.diferencia);
-                }
+      contenido += `
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="2">Totales</td>
+                <td>$${totalVentas.toFixed(2)}</td>
+                <td></td>
+                <td style="color: #c0392b;">$${totalPerdidas.toFixed(2)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </body>
+        </html>
+      `;
 
-                contenido += `
-                    <tr>
-                        <td>${corte.fecha}</td>
-                        <td>$${parseFloat(corte.apertura).toFixed(2)}</td>
-                        <td>$${parseFloat(corte.ventas).toFixed(2)}</td>
-                        <td>$${parseFloat(corte.cierre).toFixed(2)}</td>
-                        <td style="color: ${corte.diferencia < 0 ? '#c0392b' : '#27ae60'};">
-                            $${parseFloat(corte.diferencia).toFixed(2)}
-                        </td>
-                    </tr>
-                `;
-            });
+      const ventanaImpresion = window.open('', '_blank', 'width=600,height=800');
+      ventanaImpresion.document.write(contenido);
+      ventanaImpresion.document.close();
+      ventanaImpresion.focus();
 
-            // Agregar fila con totales
-            contenido += `
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="2">Totales</td>
-                                <td>$${totalVentas.toFixed(2)}</td>
-                                <td></td>
-                                <td style="color: #c0392b;">$${totalPerdidas.toFixed(2)}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </body>
-                </html>
-            `;
-
-            const ventanaImpresion = window.open('', '_blank', 'width=600,height=800');
-            ventanaImpresion.document.write(contenido);
-            ventanaImpresion.document.close();
-            ventanaImpresion.focus();
-
-            ventanaImpresion.onload = function() {
-                ventanaImpresion.print();
-                // ventanaImpresion.close(); // Opcional cerrar ventana tras imprimir
-            };
-        })
-        .catch(error => {
-            console.error('Error al obtener datos para imprimir:', error);
-            alert('Error al obtener datos para imprimir.');
-        });
-}
-
-
-
-    function cargarCortes() {
-    const fechaInicio = document.getElementById('fecha-inicio').value;
-    const fechaFin = document.getElementById('fecha-fin').value;
-    const loader = document.getElementById('loader');
-    const tbody = document.getElementById('tabla-cortes');
-
-    let url = 'obtener_cortes.php';
-
-    if (fechaInicio && fechaFin) {
-        url += `?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}`;
-    }
-
-    // Mostrar loader y limpiar tabla
-    loader.style.display = 'inline-flex';
-    tbody.innerHTML = '';
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            // Ocultar loader al recibir respuesta
-            loader.style.display = 'none';
-
-            if (data.length === 0) {
-                tbody.innerHTML = "<tr><td colspan='6'>No hay cierres registrados.</td></tr>";
-                return;
-            }
-
-            data.forEach(corte => {
-                const color = corte.diferencia < 0 ? "#c0392b" : "#27ae60";
-                const fila = `
-                    <tr>
-                        <td>${corte.fecha}</td>
-                        <td>$${parseFloat(corte.apertura).toFixed(2)}</td>
-                        <td>$${parseFloat(corte.ventas).toFixed(2)}</td>
-                        <td>$${parseFloat(corte.cierre).toFixed(2)}</td>
-                        <td style="color: ${color};">${parseFloat(corte.diferencia).toFixed(2)}</td>
-                        <td>
-                            <form method="GET" action="imprimir_corte.php" target="_blank">
-                                <input type="hidden" name="id" value="${corte.id}">
-                                <button type='submit'><i class='fas fa-print'></i>Imprimir</button>
-                            </form>
-                        </td>
-                    </tr>
-                `;
-                tbody.innerHTML += fila;
-            });
-        })
-        .catch(error => {
-            console.error('Error al cargar cortes:', error);
-            loader.style.display = 'none';
-            tbody.innerHTML = "<tr><td colspan='6'>Error al cargar los datos.</td></tr>";
-        });
-}
-
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const formBusqueda = document.getElementById('form-busqueda');
-        formBusqueda.addEventListener('submit', function(event) {
-            event.preventDefault();
-            cargarCortes();
-        });
-
-        mostrarSeccion('caja'); // Muestra la sección de caja al cargar la página
+      ventanaImpresion.onload = function () {
+        ventanaImpresion.print();
+      };
+    })
+    .catch(error => {
+      console.error('Error al obtener datos para imprimir:', error);
+      alert('Error al obtener datos para imprimir.');
     });
-  </script>
+}
+
+function cargarCortes() {
+  const fechaInicio = document.getElementById('fecha-inicio').value;
+  const fechaFin = document.getElementById('fecha-fin').value;
+  const loader = document.getElementById('loader');
+  const tbody = document.getElementById('tabla-cortes');
+
+  let url = 'obtener_cortes.php';
+
+  if (fechaInicio && fechaFin) {
+    url += `?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}`;
+  }
+
+  loader.style.display = 'inline-flex';
+  tbody.innerHTML = '';
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      loader.style.display = 'none';
+
+      if (data.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='6'>No hay cierres registrados.</td></tr>";
+        return;
+      }
+
+      data.forEach(corte => {
+        const color = corte.diferencia < 0 ? "#c0392b" : "#27ae60";
+        const fila = `
+          <tr>
+            <td>${corte.fecha}</td>
+            <td>$${parseFloat(corte.apertura).toFixed(2)}</td>
+            <td>$${parseFloat(corte.ventas).toFixed(2)}</td>
+            <td>$${parseFloat(corte.cierre).toFixed(2)}</td>
+            <td style="color: ${color};">$${parseFloat(corte.diferencia).toFixed(2)}</td>
+            <td>
+              <form method="GET" action="imprimir_corte.php" target="_blank">
+                <input type="hidden" name="id" value="${corte.id}">
+                <button type='submit'><i class='fas fa-print'></i>Imprimir</button>
+              </form>
+            </td>
+          </tr>
+        `;
+        tbody.innerHTML += fila;
+      });
+    })
+    .catch(error => {
+      console.error('Error al cargar cortes:', error);
+      loader.style.display = 'none';
+      tbody.innerHTML = "<tr><td colspan='6'>Error al cargar los datos.</td></tr>";
+    });
+}
+
+// 🔔 Notificaciones
+function mostrarNotificaciones() {
+  const panel = document.getElementById('panel-pedidos');
+  panel.classList.toggle('oculto');
+}
+
+function cargarPedidosRecientes() {
+  fetch('obtener_pedidos_recientes.php')
+    .then(response => response.json())
+    .then(data => {
+      const contador = document.getElementById('contador-pedidos');
+      const lista = document.getElementById('lista-pedidos');
+      lista.innerHTML = '';
+
+      if (data.length === 0) {
+        contador.textContent = '0';
+        document.getElementById('notificacion-pedidos').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('notificacion-pedidos').style.display = 'flex';
+      contador.textContent = data.length;
+
+      data.forEach(pedido => {
+        const item = document.createElement('li');
+        item.innerHTML = `<strong>${pedido.folio}</strong> - $${parseFloat(pedido.total).toFixed(2)}<br><small>${pedido.hora_entrega}</small>`;
+        lista.appendChild(item);
+      });
+    })
+    .catch(err => {
+      console.error('Error al cargar pedidos:', err);
+    });
+}
+
+// Botón WhatsApp para verificar pedidos
+function abrirWhatsApp() {
+  const numeroWhatsApp = '5215628419958';
+  const mensaje = encodeURIComponent('Hola, quiero verificar los pedidos recientes.');
+  const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+  window.open(url, '_blank');
+}
+
+// Función para mostrar el panel de ayuda flotante
+function mostrarPanelAyuda() {
+  const panel = document.getElementById('panel-ayuda');
+  if (panel) {
+    if (panel.classList.contains('visible')) {
+      panel.classList.remove('visible');
+      panel.classList.add('oculto');
+    } else {
+      panel.classList.remove('oculto');
+      panel.classList.add('visible');
+    }
+  }
+}
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+  const formBusqueda = document.getElementById('form-busqueda');
+  formBusqueda.addEventListener('submit', function (event) {
+    event.preventDefault();
+    cargarCortes();
+  });
+
+  mostrarSeccion('caja');
+  cargarPedidosRecientes();
+  setInterval(cargarPedidosRecientes, 5000);
+
+  // Aquí agregamos el listener para el botón WhatsApp
+  const btnWhatsApp = document.getElementById('btn-whatsapp');
+  if (btnWhatsApp) {
+    btnWhatsApp.addEventListener('click', abrirWhatsApp);
+  }
+
+  // Listener para el botón de ayuda flotante
+  const btnAyuda = document.getElementById('btn-ayuda');
+  if (btnAyuda) {
+    btnAyuda.addEventListener('click', mostrarPanelAyuda);
+  }
+});
+
+</script>
+
 </body>
 </html>
