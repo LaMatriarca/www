@@ -488,7 +488,7 @@ h1 {
 }
 
 /* Panel de derechos de autor */
-/* Panel de derechos de autor */
+/* Panel de derechos de autor VE SI VES ESTE CAMBIO*/
 .copyright-panel {
   position: fixed;
   bottom: 90px;
@@ -535,4 +535,5 @@ h1 {
   border-radius: 6px;
   cursor: pointer;
 }
+/* Panel de derechos de autor VE SI VES ESTE CAMBIO*/
 
